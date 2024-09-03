@@ -1,0 +1,15 @@
+
+# dependencies
+node_modules/
+
+message.text
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
