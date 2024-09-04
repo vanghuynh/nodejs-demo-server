@@ -38,7 +38,6 @@ const server = http.createServer((req, res) => {
     res.write('{"name":"HuynhVang"}');
     return res.end();
   }
-  //console.log(req.url, req.method, req.headers);
   //process.exit();
   res.setHeader('Content-Type', 'text/html');
   res.write('<html>');
