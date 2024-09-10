@@ -1,6 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 
+const axios = require('axios');
+
 const server = http.createServer((req, res) => {
   const url = req.url;
   const method = req.method;
@@ -36,6 +38,27 @@ const server = http.createServer((req, res) => {
   if (url === '/hello') {
     res.setHeader('Content-Type', 'application/json');
     res.write('{"name":"HuynhVang"}');
+    return res.end();
+  }
+
+  if (url === '/get-content') {
+    res.setHeader('Content-Type', 'application/json');
+
+    res.write('{"name":"Content"}');
+    axios
+      .get('https://jsonplaceholder.typicode.com/users/yyyy1')
+      .then(function (response) {
+        // handle success
+        //console.log(response);
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
     return res.end();
   }
   //process.exit();
